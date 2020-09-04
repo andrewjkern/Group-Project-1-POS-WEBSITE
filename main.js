@@ -4,25 +4,25 @@ let inventory = {
       id: 0,
       sku: 1,
       name: "Cactus",
-      category: "Succulents",
+      productCategory: "productCategory",
       description: "Rugged, yet beautiful.",
       price: 10,
-      image: "",
+      image: "./images/Cactus-gray-pot-plant-succulent.jpg",
     },
     {
       id: 1,
       sku: 2,
       name: "Chicks and Hens",
-      category: "Succulents",
+      productCategory: "productCategory",
       description: "The classic succulent.",
       price: 10,
-      image: "",
+      image: "./images/chicks-and-hens-succulent.jpg",
     },
     {
       id: 2,
       sku: 3,
       name: "Snake Plant",
-      category: "Succulents",
+      productCategory: "productCategory",
       description: "Watch it grow from small to tall.",
       price: 10,
       image: "",
@@ -100,7 +100,32 @@ let inventory = {
 };
 
 const getProducts = (category) => {
-  const succulent = document.getElementById(succulents);
-  for (let i = 0; i > inventory["succulents"].length; i++);
-  const div1 = document.createElement("div");
+  const productCategory = document.getElementById(category);
+  for (let i = 0; i < inventory[category].length; i++) {
+    const div1 = document.createElement("div");
+    const div2 = document.createElement("div");
+    const div3 = document.createElement("div");
+    const div4 = document.createElement("div");
+
+    div1.innerText = inventory[category][i].name;
+    div2.innerText = inventory[category][i].description;
+    div3.innerText = inventory[category][i].price;
+    div4.image = inventory[category][i].image;
+
+    const img = document.createElement("img");
+    img.src = inventory[category][i].image;
+    img.classList.add("succulents");
+
+    productCategory.append(img);
+    productCategory.append(div1);
+    productCategory.append(div2);
+    productCategory.append(div3);
+    productCategory.append(div4);
+  }
+};
+const getAllProducts = () => {
+  getProducts("succulents");
+  getProducts("petFriendly");
+  getProducts("beginnerFriendly");
+  getProducts("luxury");
 };

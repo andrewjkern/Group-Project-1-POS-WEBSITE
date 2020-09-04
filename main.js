@@ -25,7 +25,7 @@ let inventory = {
       productCategory: "productCategory",
       description: "Watch it grow from small to tall.",
       price: 10,
-      image: "",
+      image: "./images/snake-plant-succulent.jpg",
     },
   ],
   petFriendly: [
@@ -36,7 +36,7 @@ let inventory = {
       category: "Pet-Friendly",
       description: "A wide reach.",
       price: 10,
-      image: "",
+      image: "./images/spider-plant.jpg",
     },
     {
       id: 1,
@@ -45,7 +45,7 @@ let inventory = {
       category: "Pet-Friendly",
       description: "A tropical paradise at home.",
       price: 10,
-      image: "",
+      image: "./images/Pony-tail-palm-medium.jpg",
     },
     {
       id: 2,
@@ -54,7 +54,7 @@ let inventory = {
       category: "Pet-Friendly",
       description: "Have your home looking like a million bucks.",
       price: 10,
-      image: "",
+      image: "./images/money-tree-plant.jpg",
     },
   ],
   beginnerFriendly: [
@@ -65,7 +65,7 @@ let inventory = {
       category: "Beginner-Friendly",
       description: "Everybody's crazy about a sharp-dressed plant.",
       price: 10,
-      image: "",
+      image: "./images/ZZ-plant.jpg",
     },
     {
       id: 1,
@@ -74,7 +74,7 @@ let inventory = {
       category: "Beginner-Friendly",
       description: "The devil's advocate.",
       price: 10,
-      image: "",
+      image: "./images/pothos-plant.jpg",
     },
   ],
   luxury: [
@@ -85,7 +85,7 @@ let inventory = {
       category: "Luxury",
       description: "Why wait until the holidays?",
       price: 10,
-      image: "",
+      image: "./images/pointsettia.jpg",
     },
     {
       id: 1,
@@ -94,10 +94,12 @@ let inventory = {
       category: "Luxury",
       description: "Take a deep breath.",
       price: 10,
-      image: "",
+      image: "./images/peace-lilly.jpg",
     },
   ],
 };
+
+let cart = [];
 
 const getProducts = (category) => {
   const productCategory = document.getElementById(category);

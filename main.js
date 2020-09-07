@@ -74,7 +74,7 @@ let inventory = {
       category: "Beginner-Friendly",
       description: "The devil's advocate.",
       price: 10,
-      image: "./images/pothos-plant.jpg",
+      image: "./images/pothos-plant.jpeg",
     },
   ],
   luxury: [
@@ -85,7 +85,7 @@ let inventory = {
       category: "Luxury",
       description: "Why wait until the holidays?",
       price: 10,
-      image: "./images/pointsettia.jpg",
+      image: "./images/poinsettia.jpg",
     },
     {
       id: 1,
@@ -94,12 +94,14 @@ let inventory = {
       category: "Luxury",
       description: "Take a deep breath.",
       price: 10,
-      image: "./images/peace-lilly.jpg",
+      image: "./images/peace-lily.jpg",
     },
   ],
 };
 
 let cart = [];
+
+let addToCart = () => {};
 
 const getProducts = (category) => {
   const productCategory = document.getElementById(category);
@@ -107,16 +109,18 @@ const getProducts = (category) => {
     const div1 = document.createElement("div");
     const div2 = document.createElement("div");
     const div3 = document.createElement("div");
-    const div4 = document.createElement("div");
+    const button = document.createElement("button");
+    button.addEventListener("click", (event) => addToCart(event));
+    const div4 = button;
 
     div1.innerText = inventory[category][i].name;
     div2.innerText = inventory[category][i].description;
-    div3.innerText = inventory[category][i].price;
-    div4.image = inventory[category][i].image;
+    div3.innerText = "$" + inventory[category][i].price;
+    div4.innerText = "Add to Cart";
 
     const img = document.createElement("img");
     img.src = inventory[category][i].image;
-    img.classList.add("succulents");
+    img.classList.add("plant-image");
 
     productCategory.append(img);
     productCategory.append(div1);

@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Plants</title>
-    <link rel="stylesheet" href="main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garden of Eden</title>
+    <link rel="stylesheet" href="main.css" />
     <script src="main.js"></script>
-
-</head>
-
-<body onload="getAllProducts()">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body onload="getAllProducts()">
     <div id="container1">
-        <div id="header">
-            <h1>House Plants</h1>
-            <a id="cart" href="./checkout.html">Cart</a>
-            <img></img>
-            <ul div id="categories">
-                <li>Succulents</li>
-                <li>Beginner Friendly</li>
-                <li>Pet Friendly</li>
-                <li>Luxury</li>
-            </ul>
+      <div id="header" class="header">
+        <div class="top-nav">
+          <i class="fas fa-bars"></i>
+          <ul id="categories" class="categories">
+            <li>Succulents</li>
+            <li>Beginner Friendly</li>
+            <li>Pet Friendly</li>
+            <li>Luxury</li>
+          </ul>
+          <a id="cart" class="cart-link" href="./checkout.html">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
         </div>
-        <div id="succulents"></div>
-        <div id="beginner-friendly"></div>
-        <div id="pet-friendly"></div>
-        <div id="luxury"></div>
+        <div class="main-title">Garden of Eden</div>
+      </div>
     </div>
-</body>
+    <div class="succulent-page">
+      <div class="title">Succulents</div>
+      <div id="succulents"></div>
+      <button class="cart-button">Add to Cart</button>
+    </div>
+    <div class="beginner-page">
+      <div class="title">Beginner Friendly</div>
 
+      <div id="beginnerFriendly"></div>
+    </div>
+    <div class="pet-page">
+      <div class="title">Pet Friendly</div>
+      <div id="petFriendly"></div>
+    </div>
+    <div class="luxury-page">
+      <div class="title">Luxury</div>
+      <div id="luxury"></div>
+    </div>
+  </body>
 </html>

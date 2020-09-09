@@ -3,118 +3,163 @@
 @import url(https://fonts.googleapis.com/css2?family=PT+Sans&display=swap);
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-.header {
-    background-image: url("images/calathea-closeup-background-mobile.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: hidden;
-    margin: 0;
-    width: 100%;
-    height: 1000px;
-    color: #d19c1d;
+.main-page {
+  background-image: url("images/calathea-closeup-background-mobile.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  height: 900px;
+  color: #d19c1d;
 }
 
-.top-nav {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
+nav {
+  padding: 15px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
 }
 
-.main-title {
-    font-family: 'krona-one', sans-serif;
-    letter-spacing: 5px;
-    font-size: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.openbtn {
+  color: #d19c1d;
+  background: none;
+  border: none;
 }
 
-.title {
-    font-family: 'krona-one', sans-serif;
-    letter-spacing: 5px;
-    font-size: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #d19c1d
-}
-
-.succulent-page {
-    background-image: url('images/succulents-main.jpg');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: hidden;
-    margin: 0;
-    width: 100%;
-    height: 1000px;
-}
-
-.beginner-page {
-    background-image: url('images/easy-plants-main.jpg');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: hidden;
-    margin: 0;
-    width: 100%;
-    height: 1000px;
-}
-
-.pet-page {
-    background-image: url('images/pet-friendly-plant-main.jpg');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: hidden;
-    margin: 0;
-    width: 100%;
-    height: 1000px;
-}
-
-.luxury-page {
-    background-image: url('images/fancy-plant-main.jpg');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: hidden;
-    margin: 0;
-    width: 100%;
-    height: 1000px;
-}
-
-.cart-link {
-    font-family: "pt sans", sans-serif;
-    color: #d19c1d
+.openbtn:hover {
+  color: #488c7f;
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: none;
+  list-style: none;
+  margin: 0;
+  padding-left: 10px;
 }
 
-.categories {
-    font-family: 'PT Sans', sans-serif;
+li {
+  padding-top: 25px;
+}
+
+.nav-header {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: #d19c1d;
+}
+
+a:hover {
+  color: #488c7f;
+  cursor: pointer;
+}
+
+.sidebar {
+  font-family: "PT Sans", sans-serif;
+  height: 100%;
+  width: 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #092621;
+  padding-top: 15px;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.categories .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin-left: 50px;
+  font-size: x-large;
+}
+
+.fa-times:hover {
+  color: #488c7f;
+}
+
+.main-title {
+  font-family: "krona-one", sans-serif;
+  letter-spacing: 5px;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200px;
+  font-weight: normal;
+}
+
+.title {
+  align-items: center;
+  color: #d19c1d;
+  display: flex;
+  font-family: "krona-one", sans-serif;
+  font-size: 32px;
+  font-weight: normal;
+  justify-content: center;
+  letter-spacing: 5px;
+  padding-top: 15px;
+}
+
+.page {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  height: 1000px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.succulent-page {
+  background-image: url("images/succulents-main.jpg");
+}
+
+.beginner-page {
+  background-image: url("images/easy-plants-main.jpg");
+}
+
+.pet-page {
+  background-image: url("images/pet-friendly-plant-main.jpg");
+}
+
+.luxury-page {
+  background-image: url("images/fancy-plant-main.jpg");
+}
+
+.luxury-title {
+  color: #092621;
+}
+
+.cart-link {
+  font-family: "pt sans", sans-serif;
+  color: #d19c1d;
 }
 
 .cart-button {
-    border-radius: 24px;
-    border-color: white;
-    background-color: #d19c1d;
-    color: white;
-    outline: none;
-    font-family: 'PT Sans', sans-serif;
-    
+  border-radius: 24px;
+  border-color: white;
+  background-color: #d19c1d;
+  color: white;
+  outline: none;
+  font-family: "PT Sans", sans-serif;
+}
+
+@media screen and (min-width 768px) {
 }

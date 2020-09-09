@@ -1,3 +1,11 @@
+function openNav() {
+  document.getElementById("categories").style.width = "150px";
+}
+
+function closeNav() {
+  document.getElementById("categories").style.width = "0";
+}
+
 let inventory = {
   succulents: [
     {
@@ -101,33 +109,33 @@ let inventory = {
 
 let cart = [];
 
-const getProducts = (category) => {
-  const productCategory = document.getElementById(category);
-  for (let i = 0; i < inventory[category].length; i++) {
-    const div1 = document.createElement("div");
-    const div2 = document.createElement("div");
-    const div3 = document.createElement("div");
-    const div4 = document.createElement("div");
+// const getProducts = (category) => {
+//   const productCategory = document.getElementById(category);
+//   for (let i = 0; i < inventory[category].length; i++) {
+//     const div1 = document.createElement("div");
+//     const div2 = document.createElement("div");
+//     const div3 = document.createElement("div");
+//     const div4 = document.createElement("div");
 
-    div1.innerText = inventory[category][i].name;
-    div2.innerText = inventory[category][i].description;
-    div3.innerText = inventory[category][i].price;
-    div4.image = inventory[category][i].image;
+//     div1.innerText = inventory[category][i].name;
+//     div2.innerText = inventory[category][i].description;
+//     div3.innerText = inventory[category][i].price;
+//     div4.image = inventory[category][i].image;
 
-    const img = document.createElement("img");
-    img.src = inventory[category][i].image;
-    img.classList.add("succulents");
+//     const img = document.createElement("img");
+//     img.src = inventory[category][i].image;
+//     img.classList.add("succulents");
 
-    productCategory.append(img);
-    productCategory.append(div1);
-    productCategory.append(div2);
-    productCategory.append(div3);
-    productCategory.append(div4);
-  }
-};
-const getAllProducts = () => {
-  getProducts("succulents");
-  getProducts("petFriendly");
-  getProducts("beginnerFriendly");
-  getProducts("luxury");
-};
+//     productCategory.append(img);
+//     productCategory.append(div1);
+//     productCategory.append(div2);
+//     productCategory.append(div3);
+//     productCategory.append(div4);
+//   }
+// };
+// const getAllProducts = () => {
+//   getProducts("succulents");
+//   getProducts("petFriendly");
+//   getProducts("beginnerFriendly");
+//   getProducts("luxury");
+// };

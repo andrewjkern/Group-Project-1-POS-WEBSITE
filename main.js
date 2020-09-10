@@ -84,7 +84,6 @@ let inventory = {
       price: 10,
 
       image: "./images/pothos-plant.jpeg",
-
     },
   ],
   luxury: [
@@ -97,7 +96,6 @@ let inventory = {
       price: 10,
 
       image: "./images/poinsettia.jpg",
-
     },
     {
       id: 1,
@@ -108,37 +106,17 @@ let inventory = {
       price: 10,
 
       image: "./images/peace-lily.jpg",
-
     },
   ],
 };
 
 let cart = [];
 
-<<<<<<< HEAD
-// const getProducts = (category) => {
-//   const productCategory = document.getElementById(category);
-//   for (let i = 0; i < inventory[category].length; i++) {
-//     const div1 = document.createElement("div");
-//     const div2 = document.createElement("div");
-//     const div3 = document.createElement("div");
-//     const div4 = document.createElement("div");
-
-//     div1.innerText = inventory[category][i].name;
-//     div2.innerText = inventory[category][i].description;
-//     div3.innerText = inventory[category][i].price;
-//     div4.image = inventory[category][i].image;
-
-//     const img = document.createElement("img");
-//     img.src = inventory[category][i].image;
-//     img.classList.add("succulents");
-=======
-
-let addToCart = () => {};
-
 const getProducts = (category) => {
   const productCategory = document.getElementById(category);
   for (let i = 0; i < inventory[category].length; i++) {
+    const itemContainer = document.createElement("div");
+    itemContainer.className = "itemContainer";
     const div1 = document.createElement("div");
     const div2 = document.createElement("div");
     const div3 = document.createElement("div");
@@ -156,18 +134,20 @@ const getProducts = (category) => {
     img.src = inventory[category][i].image;
     img.classList.add("plant-image");
 
->>>>>>> 95ad8db4056eb5ce33dd558ec97aa6a4afb274d4
+    itemContainer.append(img);
+    itemContainer.append(div1);
+    itemContainer.append(div2);
+    itemContainer.append(div3);
+    itemContainer.append(div4);
 
-//     productCategory.append(img);
-//     productCategory.append(div1);
-//     productCategory.append(div2);
-//     productCategory.append(div3);
-//     productCategory.append(div4);
-//   }
-// };
-// const getAllProducts = () => {
-//   getProducts("succulents");
-//   getProducts("petFriendly");
-//   getProducts("beginnerFriendly");
-//   getProducts("luxury");
-// };
+    productCategory.append(itemContainer);
+      }
+    };
+    const getAllProducts = () => {
+      getProducts("succulents");
+      getProducts("petFriendly");
+      getProducts("beginnerFriendly");
+      getProducts("luxury");
+    };
+  }
+};

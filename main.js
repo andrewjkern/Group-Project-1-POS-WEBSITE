@@ -90,7 +90,6 @@ let inventory = {
       price: 10,
 
       image: "./images/pothos-plant.jpeg",
-
     },
   ],
   luxury: [
@@ -103,7 +102,6 @@ let inventory = {
       price: 10,
 
       image: "./images/poinsettia.jpg",
-
     },
     {
       id: 1,
@@ -114,7 +112,6 @@ let inventory = {
       price: 10,
 
       image: "./images/peace-lily.jpg",
-
     },
   ],
 };
@@ -122,14 +119,18 @@ let inventory = {
 let cart = [];
 
 
+
 let addToCart = () => {};
+
 
 const getProducts = (category) => {
   const productCategory = document.getElementById(category);
   for (let i = 0; i < inventory[category].length; i++) {
     const itemContainer = document.createElement("div");
     itemContainer.className = "itemContainer";
+
     const div1 = document.createElement("h2");
+
     const div2 = document.createElement("div");
     const div3 = document.createElement("div");
 
@@ -156,11 +157,15 @@ const getProducts = (category) => {
     itemContainer.append(div4);
 
     productCategory.append(itemContainer);
+
+      }
+    };
+    const getAllProducts = () => {
+      getProducts("succulents");
+      getProducts("petFriendly");
+      getProducts("beginnerFriendly");
+      getProducts("luxury");
+    };
   }
 };
-const getAllProducts = () => {
-  getProducts("succulents");
-  getProducts("petFriendly");
-  getProducts("beginnerFriendly");
-  getProducts("luxury");
-};
+

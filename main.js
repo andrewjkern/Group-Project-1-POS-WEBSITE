@@ -1,3 +1,17 @@
+function openNav() {
+  document.getElementById("categories").style.display = "inline";
+setTimeout(()=> {  document.getElementById("categories").style.width = "150px";
+},100);
+}
+
+function closeNav() {
+  document.getElementById("categories").style.width = "0";
+  setTimeout(()=> {  document.getElementById("categories").style.display = "none";
+},500);
+  
+
+}
+
 let inventory = {
   succulents: [
     {
@@ -113,7 +127,9 @@ let addToCart = () => {};
 const getProducts = (category) => {
   const productCategory = document.getElementById(category);
   for (let i = 0; i < inventory[category].length; i++) {
-    const div1 = document.createElement("div");
+    const itemContainer = document.createElement("div");
+    itemContainer.className = "itemContainer";
+    const div1 = document.createElement("h2");
     const div2 = document.createElement("div");
     const div3 = document.createElement("div");
 
@@ -126,16 +142,20 @@ const getProducts = (category) => {
     div3.innerText = "$" + inventory[category][i].price;
     div4.innerText = "Add to Cart";
 
+    div4.className = "cartButton";
+
     const img = document.createElement("img");
     img.src = inventory[category][i].image;
     img.classList.add("plant-image");
 
 
-    productCategory.append(img);
-    productCategory.append(div1);
-    productCategory.append(div2);
-    productCategory.append(div3);
-    productCategory.append(div4);
+    itemContainer.append(img);
+    itemContainer.append(div1);
+    itemContainer.append(div2);
+    itemContainer.append(div3);
+    itemContainer.append(div4);
+
+    productCategory.append(itemContainer);
   }
 };
 const getAllProducts = () => {

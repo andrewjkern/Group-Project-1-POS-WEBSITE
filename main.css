@@ -16,12 +16,17 @@ body {
   overflow: hidden;
   margin: 0;
   width: 100%;
-  height: 900px;
+  height: 100vh;
   color: #d19c1d;
 }
 
+#categories {
+  width: 0;
+  display: none;
+}
 nav {
   padding: 15px;
+  width: 92%;
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -89,7 +94,7 @@ a:hover {
 
 .main-title {
   font-family: "krona-one", sans-serif;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
   font-size: 32px;
   display: flex;
   align-items: center;
@@ -104,7 +109,7 @@ a:hover {
   display: flex;
   font-family: "krona-one", sans-serif;
   font-size: 32px;
-  font-weight: normal;
+  font-weight: 500;
   justify-content: center;
   letter-spacing: 5px;
   padding-top: 15px;
@@ -118,13 +123,33 @@ a:hover {
   overflow: hidden;
   margin: 0;
   width: 100%;
-  height: 1000px;
-}
-
-.item {
+  height: 1450px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemContainer {
+  font-family: "PT Sans", sans-serif;
+  background-color: white;
+  border: white solid 4px;
+  color: #2e282a;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 20px;
+  width: 250px;
+  height: auto;
+  text-align: center;
+}
+
+.plant-image {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
 }
 
 .succulent-page {
@@ -133,6 +158,7 @@ a:hover {
 
 .beginner-page {
   background-image: url("images/easy-plants-main.jpg");
+  height: 1000px;
 }
 
 .pet-page {
@@ -141,10 +167,11 @@ a:hover {
 
 .luxury-page {
   background-image: url("images/fancy-plant-main.jpg");
+  height: 1000px;
 }
 
 .luxury-title {
-  color: #092621;
+  color: white;
 }
 
 .cart-link {
@@ -152,15 +179,26 @@ a:hover {
   color: #d19c1d;
 }
 
-.cart-button {
+.cartButton {
   border-radius: 24px;
-  border-color: white;
+  border: #2e282a solid 1px;
   background-color: #d19c1d;
   color: white;
   outline: none;
   font-family: "PT Sans", sans-serif;
+  margin-top: 10px;
 }
 
-@media screen and (min-width 768px) {
+button:hover {
+  cursor: pointer;
+  background-color: #092621;
+}
+
+@media screen and (min-width: 768px) {
+  .main-title {
+    font-size: 96px;
+    letter-spacing: 30px;
+  }
+ 
 }
 

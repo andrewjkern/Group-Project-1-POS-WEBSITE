@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Checkout Cart</title>
-    <script src="cart.js"></script>
+    <script src="main.js"></script>
     <link rel="stylesheet" href="checkout.css">
 </head>
 
@@ -35,8 +36,8 @@
         </div>
         <div class="paymentChoice">
             <h2>How would you like to pay?</h2>
-            <a><button id="creditCardButton" onclick="ccSelection()">Credit Card</button></a>
-            <a><button id="cashButton" onclick="cashSelection()">Cash</button></a>
+            <a><button id="creditCardButton" class="creditCardButton" onclick="ccSelection()">Credit Card</button></a>
+            <a><button id="cashButton" class="cashButton" onclick="cashSelection()">Cash</button></a>
         </div>
         <div id="shipBillContainer">
             <div class="container2">
@@ -76,15 +77,19 @@
                 <label for="cvv">CVV</label>
                 <input type="text" id="cvv" placeholder="123">
             </div>
-            <a href="./receipt.html" class="processOrder1"><button>
+            <a href="./receipt.html" class="processOrder1"><button id="processOrder" class="processOrder">
                     <h1>Process Order</h1>
                 </button></a>
         </div>
-        <div id="cashPayment">Please Enter the Amount of Cash You Would Like to Deposit:
-            <label for="cashInput">Amount</label>
-            <input type="text" id="cashInput" placeholder="$20.00">
-            <button id="Enter">Enter</button>
-            <a href="./receipt.html" class="processOrder2"><button>
+        <div id="cashPayment">
+            <div class="cashAmount">Please Enter the Amount of Cash You Would Like to Deposit:</div>
+            <div class="cashInput">Amount Due: $36.80</div>
+            <input type="number" id="cashInput" placeholder="$20.00">
+            <button id="Enter" class="Enter">Enter</button>
+            <div class="amountEntered">Amount Entered: $20.00</div>
+            <div class="remainingAmount">Remaining Amount: $16.80</div>
+
+            <a href="./receipt.html" class="processOrder2"><button id="processOrder" class="processOrder">
                     <h1>Process Order</h1>
                 </button></a>
         </div>
@@ -93,4 +98,5 @@
 </body>
 
 </body>
+
 </html>

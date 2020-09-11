@@ -1,15 +1,15 @@
 function openNav() {
   document.getElementById("categories").style.display = "inline";
-setTimeout(()=> {  document.getElementById("categories").style.width = "150px";
-},100);
+  setTimeout(() => {
+    document.getElementById("categories").style.width = "150px";
+  }, 100);
 }
 
 function closeNav() {
   document.getElementById("categories").style.width = "0";
-  setTimeout(()=> {  document.getElementById("categories").style.display = "none";
-},500);
-  
-
+  setTimeout(() => {
+    document.getElementById("categories").style.display = "none";
+  }, 500);
 }
 
 let inventory = {
@@ -90,7 +90,6 @@ let inventory = {
       price: 10,
 
       image: "./images/pothos-plant.jpeg",
-
     },
   ],
   luxury: [
@@ -103,7 +102,6 @@ let inventory = {
       price: 10,
 
       image: "./images/poinsettia.jpg",
-
     },
     {
       id: 1,
@@ -114,13 +112,11 @@ let inventory = {
       price: 10,
 
       image: "./images/peace-lily.jpg",
-
     },
   ],
 };
 
 let cart = [];
-
 
 let addToCart = () => {};
 
@@ -148,7 +144,6 @@ const getProducts = (category) => {
     img.src = inventory[category][i].image;
     img.classList.add("plant-image");
 
-
     itemContainer.append(img);
     itemContainer.append(div1);
     itemContainer.append(div2);
@@ -164,3 +159,23 @@ const getAllProducts = () => {
   getProducts("beginnerFriendly");
   getProducts("luxury");
 };
+
+function ccSelection() {
+  var x = document.getElementById("shipBillContainer");
+  var c = (document.getElementById("cashPayment").style.display = "none");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function cashSelection() {
+  var c = document.getElementById("cashPayment");
+  var x = (document.getElementById("shipBillContainer").style.display = "none");
+  if (c.style.display === "none") {
+    c.style.display = "block";
+  } else {
+    c.style.display = "none";
+  }
+}

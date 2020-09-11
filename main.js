@@ -1,15 +1,15 @@
 function openNav() {
   document.getElementById("categories").style.display = "inline";
-setTimeout(()=> {  document.getElementById("categories").style.width = "150px";
-},100);
+  setTimeout(() => {
+    document.getElementById("categories").style.width = "150px";
+  }, 100);
 }
 
 function closeNav() {
   document.getElementById("categories").style.width = "0";
-  setTimeout(()=> {  document.getElementById("categories").style.display = "none";
-},500);
-  
-
+  setTimeout(() => {
+    document.getElementById("categories").style.display = "none";
+  }, 500);
 }
 
 let inventory = {
@@ -118,10 +118,11 @@ let inventory = {
 
 let cart = [];
 
-
-
-let addToCart = () => {};
-
+let addToCart = (event) => {
+  cart.push(inventory[event.target.classList[0]][event.target.id]);
+  window.localStorage.setItem("cart", JSON.stringify(cart));
+  console.log(cart);
+};
 
 const getProducts = (category) => {
   const productCategory = document.getElementById(category);
@@ -130,42 +131,53 @@ const getProducts = (category) => {
     itemContainer.className = "itemContainer";
 
     const div1 = document.createElement("h2");
-
     const div2 = document.createElement("div");
     const div3 = document.createElement("div");
 
     const button = document.createElement("button");
+    button.id = i;
+    button.classList.add(category);
     button.addEventListener("click", (event) => addToCart(event));
-    const div4 = button;
 
     div1.innerText = inventory[category][i].name;
     div2.innerText = inventory[category][i].description;
     div3.innerText = "$" + inventory[category][i].price;
-    div4.innerText = "Add to Cart";
+    button.innerText = "Add to Cart";
 
-    div4.className = "cartButton";
+    button.classList.add("cartButton");
 
     const img = document.createElement("img");
     img.src = inventory[category][i].image;
     img.classList.add("plant-image");
 
-
     itemContainer.append(img);
     itemContainer.append(div1);
     itemContainer.append(div2);
     itemContainer.append(div3);
-    itemContainer.append(div4);
+    itemContainer.append(button);
 
     productCategory.append(itemContainer);
-
-      }
-    };
-    const getAllProducts = () => {
-      getProducts("succulents");
-      getProducts("petFriendly");
-      getProducts("beginnerFriendly");
-      getProducts("luxury");
-    };
   }
 };
+const getAllProducts = () => {
+  getProducts("succulents");
+  getProducts("petFriendly");
+  getProducts("beginnerFriendly");
+  getProducts("luxury");
+};
 
+//Fill Cart Function is a work in progress as of push on 9.10 - Devin
+let fillCart = () => {
+  const cartPage = document.getElementsByClassName("container1");
+  for (let i = 0; i < inventory.length; i++)
+    const cartItem = document.createElement("div");
+
+  const itemName = document.createElement("h3");
+  const remove = document.createElement("button");
+  const itemPrice = document.createElement("p");
+};
+
+let showCart = () => {
+  cart = JSON.parse(window.localStorage.getItem("cart"));
+  console.log(cart);
+};

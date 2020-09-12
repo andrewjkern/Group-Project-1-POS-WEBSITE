@@ -164,3 +164,23 @@ const getAllProducts = () => {
   getProducts("beginnerFriendly");
   getProducts("luxury");
 };
+
+function ccSelection() {
+  var x = document.getElementById("shipBillContainer");
+  var c = (document.getElementById("cashPayment").style.display = "none");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function cashSelection() {
+  var c = document.getElementById("cashPayment");
+  var x = (document.getElementById("shipBillContainer").style.display = "none");
+  if (c.style.display === "none") {
+    c.style.display = "block";
+  } else {
+    c.style.display = "none";
+  }
+}

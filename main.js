@@ -188,18 +188,22 @@ const getProducts = (category) => {
     productCategory.append(itemContainer);
   }
 };
-// const getAllProducts = () => {
-//   getProducts("succulents");
-//   getProducts("petFriendly");
-//   getProducts("beginnerFriendly");
-//   getProducts("luxury");
-// };
+
+const getAllProducts = () => {
+  getProducts("succulents");
+  getProducts("petFriendly");
+  getProducts("beginnerFriendly");
+  getProducts("luxury");
+};
+
+
 
 //Fill Cart Function is a work in progress as of push on 9.10 - Devin
 let fillCart = () => {
   //items in cart with prices
   {
     const cartPage = document.getElementsByClassName("container1");
+
     for (let i = 0; i < inventory.length; i++)
       const cartItem = document.createElement("div");
 
@@ -267,7 +271,13 @@ let fillCart = () => {
     taxAndTotal.append(grand);
 
     container1.append(taxAndTotal);
+
   }
+
+
+let showCart = () => {
+  cart = JSON.parse(window.localStorage.getItem("cart"));
+  console.log(cart);
 };
 
 let showCart = () => {
@@ -281,6 +291,7 @@ const getAllProducts = () => {
   getProducts("beginnerFriendly");
   getProducts("luxury");
 };
+
 
 function ccSelection() {
   var x = document.getElementById("shipBillContainer");
@@ -300,4 +311,7 @@ function cashSelection() {
   } else {
     c.style.display = "none";
   }
+
 }
+
+

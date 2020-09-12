@@ -106,7 +106,7 @@ a:hover {
 
 .title {
   align-items: center;
-  color: #d19c1d;
+  color: white;
   display: flex;
   font-family: "krona-one", sans-serif;
   font-size: 32px;
@@ -171,10 +171,6 @@ a:hover {
   height: 1000px;
 }
 
-.luxury-title {
-  color: white;
-}
-
 .cart-link {
   font-family: "pt sans", sans-serif;
   color: #d19c1d;
@@ -182,7 +178,7 @@ a:hover {
 
 .cartButton {
   border-radius: 24px;
-  border: #2e282a solid 1px;
+  border: #d19c1d solid 2px;
   background-color: #d19c1d;
   color: white;
   outline: none;
@@ -195,10 +191,56 @@ button:hover {
   background-color: #092621;
 }
 
+
 @media screen and (min-width: 768px) {
   .main-title {
     font-size: 96px;
     letter-spacing: 30px;
   }
+
+
+  .page {
+    height: 100vh;
+    justify-content: center;
+    position: relative;
+  }
+
+  .title {
+    position: absolute;
+    top: 5px;
+    margin: auto;
+    font-size: 62px;
+    letter-spacing: 10px;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .itemContainer {
+    height: 450px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 325px;
+    margin-bottom: 40px;
+  }
+
+  .plant-image {
+    height: 250px;
+    width: 300px;
+    object-fit: contain;
+  }
+
+ nav {
+   width: 97%;
+   padding-top: 20px;
+ }
+
+}
+
 
 }

@@ -116,15 +116,42 @@ let inventory = {
   ],
 };
 
-let cart = [];
+let cart = [],
+  total = 0;
 
+let totalPrice = () => {
+  for (let i = 0; i < cart.length; i++) {
+    total += cart[i].price;
+    console.log("Cart Total: " + totalPrice());
+  }
+};
+
+let taxFunction = () => {
+  totalPrice() * 0.06;
+  console.log("Taxes: " + taxFunction());
+};
+
+let shipping = () => {
+  if (cart.length > 0 && cart.length <= 2) {
+    cart.length * 5;
+  } else if (cart.length > 2 && cart.length <= 5) {
+    cart.length * 3;
+  } else {
+    cart.length * 2;
+  }
+  console.log("Shipping: " + shipping());
+};
+
+let grandTotal = () => {
+  totalPrice() + taxFunction() + shipping();
+  console.log("Final Price" + grandTotal());
+};
 
 let addToCart = (event) => {
   cart.push(inventory[event.target.classList[0]][event.target.id]);
   window.localStorage.setItem("cart", JSON.stringify(cart));
   console.log(cart);
 };
-
 
 const getProducts = (category) => {
   const productCategory = document.getElementById(category);
@@ -170,15 +197,78 @@ const getAllProducts = () => {
 
 //Fill Cart Function is a work in progress as of push on 9.10 - Devin
 let fillCart = () => {
-  const cartPage = document.getElementsByClassName("container1");
-  for (let i = 0; i < inventory.length; i++)
-    const cartItem = document.createElement("div");
+  //items in cart with prices
+  {
+    const cartPage = document.getElementsByClassName("container1");
+    for (let i = 0; i < inventory.length; i++)
+      const cartItem = document.createElement("div");
 
-  const itemName = document.createElement("h3");
-  const remove = document.createElement("button");
-  const itemPrice = document.createElement("p");
+    const itemName = document.createElement("h3");
+    const remove = document.createElement("button");
+    const itemPrice = document.createElement("span");
+
+    itemName.innerText = cart[i].name;
+    remove.innerText = "X";
+    itemPrice.innerText = cart[i].price;
+
+    cartItem.append(itemName);
+    cartItem.append(remove);
+    cartItem.append(itemPrice);
+
+    container1.append(cartItem);
+  }
+  //subtotal to go under the individual items
+  {
+    const subtotalLine = document.getElementById("container1");
+    const subtotal = document.createElement("div");
+    const subtotalText = document.createElement("h3");
+    const subPrice = document.getElementById("span");
+    subtotal.innerText = "Subtotal:";
+    subPrice.innerText = totalPrice();
+
+    subtotal.append(subtotalText);
+    subtotal.append(subPrice);
+    subtotalLine.append(subtotal);
+  }
+
+  //tax, shipping, and total
+  {
+    const finalPrice = document.getElementById("container1");
+    const taxAndTotal = document.createElement("div");
+
+    const tax = document.createElement("p");
+    const taxText = document.createElement("span");
+    let taxNumber = document.createElement("span");
+    taxText.innerText = "Tax:";
+    taxNumber.innerText = taxFunction();
+
+    const ship = document.createElement("p");
+    const shipText = document.createElement("span");
+    let shipNumber = document.createElement("span");
+    taxText.innerText = "Shipping:";
+    taxNumber.innerText = shipping();
+
+    const grand = document.createElement("p");
+    const grandText = document.createElement("span");
+    let grandNumber = document.createElement("span");
+    grandText.innerText = "Total:";
+    grandNumber.innerText = grandTotal();
+
+    tax.append(taxText);
+    tax.append(taxNumber);
+    taxAndTotal.append(tax);
+
+    ship.append(shipText);
+    ship.append(shipNumber);
+    taxAndTotal.append(ship);
+
+    grand.append(grandText);
+    grand.append(grandNumber);
+    taxAndTotal.append(grand);
+
+    container1.append(taxAndTotal);
+  }
 };
-
 
 let showCart = () => {
   cart = JSON.parse(window.localStorage.getItem("cart"));
@@ -211,5 +301,3 @@ function cashSelection() {
     c.style.display = "none";
   }
 }
-
-

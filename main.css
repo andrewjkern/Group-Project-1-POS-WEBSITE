@@ -235,10 +235,10 @@ button:hover {
     object-fit: contain;
   }
 
- nav {
-   width: 97%;
-   padding-top: 20px;
- }
+  nav {
+    width: 97%;
+    padding-top: 20px;
+  }
 
 }
 

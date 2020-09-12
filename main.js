@@ -4,14 +4,12 @@ function openNav() {
     document.getElementById("categories").style.width = "150px";
   }, 100);
 }
-
 function closeNav() {
   document.getElementById("categories").style.width = "0";
   setTimeout(() => {
     document.getElementById("categories").style.display = "none";
   }, 500);
 }
-
 let inventory = {
   succulents: [
     {
@@ -88,7 +86,6 @@ let inventory = {
       category: "Beginner-Friendly",
       description: "The devil's advocate.",
       price: 10,
-
       image: "./images/pothos-plant.jpeg",
     },
   ],
@@ -100,7 +97,6 @@ let inventory = {
       category: "Luxury",
       description: "Why wait until the holidays?",
       price: 10,
-
       image: "./images/poinsettia.jpg",
     },
     {
@@ -110,27 +106,22 @@ let inventory = {
       category: "Luxury",
       description: "Take a deep breath.",
       price: 10,
-
       image: "./images/peace-lily.jpg",
     },
   ],
 };
-
 let cart = [],
   total = 0;
-
 let totalPrice = () => {
   for (let i = 0; i < cart.length; i++) {
     total += cart[i].price;
     console.log("Cart Total: " + totalPrice());
   }
 };
-
 let taxFunction = () => {
   totalPrice() * 0.06;
   console.log("Taxes: " + taxFunction());
 };
-
 let shipping = () => {
   if (cart.length > 0 && cart.length <= 2) {
     cart.length * 5;
@@ -141,63 +132,49 @@ let shipping = () => {
   }
   console.log("Shipping: " + shipping());
 };
-
 let grandTotal = () => {
   totalPrice() + taxFunction() + shipping();
   console.log("Final Price" + grandTotal());
 };
-
 let addToCart = (event) => {
   cart.push(inventory[event.target.classList[0]][event.target.id]);
   window.localStorage.setItem("cart", JSON.stringify(cart));
   console.log(cart);
 };
-
 const getProducts = (category) => {
   const productCategory = document.getElementById(category);
   for (let i = 0; i < inventory[category].length; i++) {
     const itemContainer = document.createElement("div");
     itemContainer.className = "itemContainer";
-
     const div1 = document.createElement("h2");
     const div2 = document.createElement("div");
     const div3 = document.createElement("div");
-
     const button = document.createElement("button");
     button.id = i;
     button.classList.add(category);
     button.addEventListener("click", (event) => addToCart(event));
-
     div1.innerText = inventory[category][i].name;
     div2.innerText = inventory[category][i].description;
     div3.innerText = "$" + inventory[category][i].price;
     button.innerText = "Add to Cart";
-
     button.classList.add("cartButton");
-
     const img = document.createElement("img");
     img.src = inventory[category][i].image;
     img.classList.add("plant-image");
-
     itemContainer.append(img);
     itemContainer.append(div1);
     itemContainer.append(div2);
     itemContainer.append(div3);
     itemContainer.append(button);
-
     productCategory.append(itemContainer);
   }
 };
-
 const getAllProducts = () => {
   getProducts("succulents");
   getProducts("petFriendly");
   getProducts("beginnerFriendly");
   getProducts("luxury");
 };
-
-
-
 //Fill Cart Function is a work in progress as of push on 9.10 - Devin
 let fillCart = () => {
   //items in cart with prices
@@ -208,18 +185,16 @@ let fillCart = () => {
 
       const cartItem = document.createElement("div");
 
+
     const itemName = document.createElement("h3");
     const remove = document.createElement("button");
     const itemPrice = document.createElement("span");
-
     itemName.innerText = cart[i].name;
     remove.innerText = "X";
     itemPrice.innerText = cart[i].price;
-
     cartItem.append(itemName);
     cartItem.append(remove);
     cartItem.append(itemPrice);
-
     container1.append(cartItem);
   }
   //subtotal to go under the individual items
@@ -230,61 +205,47 @@ let fillCart = () => {
     const subPrice = document.getElementById("span");
     subtotal.innerText = "Subtotal:";
     subPrice.innerText = totalPrice();
-
     subtotal.append(subtotalText);
     subtotal.append(subPrice);
     subtotalLine.append(subtotal);
   }
-
   //tax, shipping, and total
   {
     const finalPrice = document.getElementById("container1");
     const taxAndTotal = document.createElement("div");
-
     const tax = document.createElement("p");
     const taxText = document.createElement("span");
     let taxNumber = document.createElement("span");
     taxText.innerText = "Tax:";
     taxNumber.innerText = taxFunction();
-
     const ship = document.createElement("p");
     const shipText = document.createElement("span");
     let shipNumber = document.createElement("span");
     taxText.innerText = "Shipping:";
     taxNumber.innerText = shipping();
-
     const grand = document.createElement("p");
     const grandText = document.createElement("span");
     let grandNumber = document.createElement("span");
     grandText.innerText = "Total:";
     grandNumber.innerText = grandTotal();
-
     tax.append(taxText);
     tax.append(taxNumber);
     taxAndTotal.append(tax);
-
     ship.append(shipText);
     ship.append(shipNumber);
     taxAndTotal.append(ship);
-
     grand.append(grandText);
     grand.append(grandNumber);
     taxAndTotal.append(grand);
-
     container1.append(taxAndTotal);
-
   }
-
-
+};
 let showCart = () => {
   cart = JSON.parse(window.localStorage.getItem("cart"));
   console.log(cart);
 };
 
-let showCart = () => {
-  cart = JSON.parse(window.localStorage.getItem("cart"));
-  console.log(cart);
-};
+
 
 
 function ccSelection() {
@@ -296,7 +257,6 @@ function ccSelection() {
     x.style.display = "none";
   }
 }
-
 function cashSelection() {
   var c = document.getElementById("cashPayment");
   var x = (document.getElementById("shipBillContainer").style.display = "none");
@@ -305,7 +265,8 @@ function cashSelection() {
   } else {
     c.style.display = "none";
   }
-
 }
-
-
+function loadAmount() {
+  var a = document.getElementById("cashInput").value;
+  document.getElementById("demo").innerHTML = a;
+}

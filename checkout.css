@@ -17,6 +17,7 @@ body {
 
 }
 
+
 h1 {
     font-family: "Krona One", sans-serif;
     color: #d19c1d;
@@ -25,6 +26,7 @@ h1 {
     letter-spacing: 8px;
     font-weight: normal;
 }
+
 
 #cart {
     left: 50%;
@@ -47,6 +49,7 @@ h2 {
   border-radius: 3px;
 }
 
+
 .container2 {
   background-color: #f2f2f2;
   padding: 5px 20px 15px 20px;
@@ -54,6 +57,7 @@ h2 {
   border-radius: 3px;
   margin-top: 15px;
   margin-bottom: 15px;
+
 }
 
 #cashPayment {
@@ -68,6 +72,7 @@ h2 {
 .paymentChoice {
   text-align: center;
 }
+
 
 .pay-question {
     color: white;
@@ -94,12 +99,14 @@ input[type="text"] {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 3px;
+
 }
 
 label {
   margin-bottom: 10px;
   display: block;
 }
+
 
 .btn {
   background-color: #d19c1d;
@@ -112,15 +119,18 @@ label {
   cursor: pointer;
   font-size: 17px;
   font-family: "PT Sans", sans-serif;
+
 }
 
 button:hover {
   background-color: #092621;
 }
 
+
 .Enter {
     width: 100px;
   }
+
 
 a {
   color: #d19c1d;
@@ -149,6 +159,7 @@ span.price {
   padding-top: 20px;
 }
 
+
 h2 {
   text-align: center;
 }
@@ -174,6 +185,51 @@ h2 {
     left: 50%;
 }
 
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 72px;
+        letter-spacing: 30px;
+    }
+
+    .mainContainer{
+        width: 70%;
+    }
+
+    input[type="text"] {
+        width: 97%;
+    }
+}
+
+#shipBillContainer {
+    display: none;
+}
+
+#cashPayment {
+    display: none;
+}
+
+h2 {
+    text-align: center;
+}
+
+.cashAmount {
+    margin-bottom: 10px;
+}
+
+.cashInput {
+    margin-bottom: 10px;
+}
+
+.amountEntered {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.remainingAmount {
+    margin-bottom: 10px;
+  
+
+}
 @media screen and (min-width: 768px) {
     h1 {
         font-size: 72px;

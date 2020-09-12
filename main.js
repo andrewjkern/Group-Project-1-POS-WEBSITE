@@ -116,35 +116,42 @@ let inventory = {
   ],
 };
 
-let cart = [],
+let cart = JSON.stringify(window.localStorage.getItem("cart")),
   total = 0;
+
+console.log(cart);
 
 let totalPrice = () => {
   for (let i = 0; i < cart.length; i++) {
-    total += cart[i].price;
-    console.log("Cart Total: " + totalPrice());
+    total += parseInt(cart[i].price);
+    console.log("Cart Total: ", total);
   }
+  return total;
 };
 
 let taxFunction = () => {
-  totalPrice() * 0.06;
-  console.log("Taxes: " + taxFunction());
+  let taxes = total * 0.06;
+  console.log("Taxes: " + taxes);
+  return taxes;
 };
 
 let shipping = () => {
+  let shipCost = 0;
   if (cart.length > 0 && cart.length <= 2) {
-    cart.length * 5;
+    shipCost = cart.length * 5;
   } else if (cart.length > 2 && cart.length <= 5) {
-    cart.length * 3;
+    shipcost = cart.length * 3;
   } else {
-    cart.length * 2;
+    shipCost = cart.length * 2;
   }
-  console.log("Shipping: " + shipping());
+  console.log("Shipping: " + shipCost);
+  return shipCost;
 };
 
 let grandTotal = () => {
-  totalPrice() + taxFunction() + shipping();
-  console.log("Final Price" + grandTotal());
+  let grandTot = total + taxFunction() + shipping();
+  console.log("Final Price" + grandTot);
+  return grandTot;
 };
 
 let addToCart = (event) => {
@@ -195,14 +202,20 @@ const getAllProducts = () => {
   getProducts("luxury");
 };
 
-
 //Fill Cart Function is a work in progress as of push on 9.10 - Devin
 let fillCart = () => {
+  const showCart = () => {
+    cart = JSON.parse(window.localStorage.getItem("cart"));
+    console.log(cart);
+    totalPrice();
+  };
+  showCart();
   //items in cart with prices
   {
-    const cartPage = document.getElementsByClassName("container1");
-    for (let i = 0; i < inventory.length; i++) {
+    const cartPage = document.getElementById("container1");
+    for (let i = 0; i < cart.length; i++) {
       const cartItem = document.createElement("div");
+      cartItem.classList.add("purchasedItem");
 
       const itemName = document.createElement("h3");
       const remove = document.createElement("button");
@@ -223,9 +236,9 @@ let fillCart = () => {
       const subtotalLine = document.getElementById("container1");
       const subtotal = document.createElement("div");
       const subtotalText = document.createElement("h3");
-      const subPrice = document.getElementById("span");
+      const subPrice = document.createElement("span");
       subtotal.innerText = "Subtotal:";
-      subPrice.innerText = totalPrice();
+      subPrice.innerText = total;
 
       subtotal.append(subtotalText);
       subtotal.append(subPrice);
@@ -271,18 +284,6 @@ let fillCart = () => {
     }
   }
 
-  let showCart = () => {
-    cart = JSON.parse(window.localStorage.getItem("cart"));
-    console.log(cart);
-  };
-
-  const getAllProducts = () => {
-    getProducts("succulents");
-    getProducts("petFriendly");
-    getProducts("beginnerFriendly");
-    getProducts("luxury");
-  };
-
   function ccSelection() {
     var x = document.getElementById("shipBillContainer");
     var c = (document.getElementById("cashPayment").style.display = "none");
@@ -293,39 +294,24 @@ let fillCart = () => {
     }
   }
 
+  // function ccSelection() {
+  //   var x = document.getElementById("shipBillContainer");
+  //   var c = (document.getElementById("cashPayment").style.display = "none");
+  //   if (x.style.display === "none") {
+  //     x.style.display = "block";
+  //   } else {
+  //     x.style.display = "none";
+  //   }
+  // }
 
-let showCart = () => {
-  cart = JSON.parse(window.localStorage.getItem("cart"));
-  console.log(cart);
-};
-
-const getAllProducts = () => {
-  getProducts("succulents");
-  getProducts("petFriendly");
-  getProducts("beginnerFriendly");
-  getProducts("luxury");
-};
-
-
-function ccSelection() {
-  var x = document.getElementById("shipBillContainer");
-  var c = (document.getElementById("cashPayment").style.display = "none");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
+  function cashSelection() {
+    var c = document.getElementById("cashPayment");
+    var x = (document.getElementById("shipBillContainer").style.display =
+      "none");
+    if (c.style.display === "none") {
+      c.style.display = "block";
+    } else {
+      c.style.display = "none";
+    }
   }
-}
-
-function cashSelection() {
-  var c = document.getElementById("cashPayment");
-  var x = (document.getElementById("shipBillContainer").style.display = "none");
-  if (c.style.display === "none") {
-    c.style.display = "block";
-  } else {
-    c.style.display = "none";
-  }
-
-}
-
-
+};

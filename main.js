@@ -201,7 +201,7 @@ let fillCart = () => {
   //items in cart with prices
   {
     const cartPage = document.getElementsByClassName("container1");
-    for (let i = 0; i < inventory.length; i++)
+    for (let i = 0; i < inventory.length; i++);
       const cartItem = document.createElement("div");
 
     const itemName = document.createElement("h3");
@@ -276,13 +276,6 @@ let showCart = () => {
   console.log(cart);
 };
 
-const getAllProducts = () => {
-  getProducts("succulents");
-  getProducts("petFriendly");
-  getProducts("beginnerFriendly");
-  getProducts("luxury");
-};
-
 
 function ccSelection() {
   var x = document.getElementById("shipBillContainer");
@@ -304,4 +297,3 @@ function cashSelection() {
   }
 
 }
-

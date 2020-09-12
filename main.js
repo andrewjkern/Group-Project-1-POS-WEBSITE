@@ -195,6 +195,7 @@ const getAllProducts = () => {
   getProducts("luxury");
 };
 
+
 //Fill Cart Function is a work in progress as of push on 9.10 - Devin
 let fillCart = () => {
   //items in cart with prices
@@ -292,14 +293,39 @@ let fillCart = () => {
     }
   }
 
-  function cashSelection() {
-    var c = document.getElementById("cashPayment");
-    var x = (document.getElementById("shipBillContainer").style.display =
-      "none");
-    if (c.style.display === "none") {
-      c.style.display = "block";
-    } else {
-      c.style.display = "none";
-    }
-  }
+
+let showCart = () => {
+  cart = JSON.parse(window.localStorage.getItem("cart"));
+  console.log(cart);
 };
+
+const getAllProducts = () => {
+  getProducts("succulents");
+  getProducts("petFriendly");
+  getProducts("beginnerFriendly");
+  getProducts("luxury");
+};
+
+
+function ccSelection() {
+  var x = document.getElementById("shipBillContainer");
+  var c = (document.getElementById("cashPayment").style.display = "none");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function cashSelection() {
+  var c = document.getElementById("cashPayment");
+  var x = (document.getElementById("shipBillContainer").style.display = "none");
+  if (c.style.display === "none") {
+    c.style.display = "block";
+  } else {
+    c.style.display = "none";
+  }
+
+}
+
+

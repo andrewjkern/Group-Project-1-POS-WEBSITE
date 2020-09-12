@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Checkout Cart</title>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="checkout.css">
-</head>
 
+    <link rel="stylesheet" href="checkout.css" />
+    <script src="./main.js"></script>
+  </head>
 
-<body onload="showCart()">
-
+  <body onload="fillCart()">
     <h1>Garden of Eden</h1>
     <div class="mainContainer">
+      <div id="container1">
+        <h2>Order Summary</h2>
 
-        <div class="container1">
-
-            <h2>Order Summary</h2>
-
-
-            <p><a href="#">Product 1</a><input id="remove" type="button" class="remove-item" value="X"> <span
+        <!-- <p><a href="#">Product 1</a><input id="remove" type="button" class="remove-item" value="X"> <span
                     class="price">$15</span></p>
             <p><a href="#">Product 2</a><input id="remove" type="button" class="remove-item" value="X"> <span
                     class="price">$5</span></p>
@@ -35,10 +29,47 @@
             <p>Tax: <span class="price"><b>$1.80</b></span></p>
             <p>Shipping: <span class="price"><b>$5.00</b></span></p>
             <p>
-            <h4>Grand Total: <span class="price" style="color:black"><b>$36.80</b></span></h4>
+            <h4>Grand Total: <span class="price" style="color:black"><b>$36.80</b></span></h4> -->
 
-            <a id="cart" href="./index.html">Continue Shopping</a>
+        <a id="cart" href="./index.html">Continue Shopping</a>
+      </div>
+      <div class="paymentChoice">
+        <h2 class="pay-question">How would you like to pay?</h2>
+        <a
+          ><button
+            id="creditCardButton"
+            class="creditCardButton btn"
+            onclick="ccSelection()"
+          >
+            Credit Card
+          </button></a
+        >
+        <a
+          ><button
+            id="cashButton"
+            class="cashButton btn"
+            onclick="cashSelection()"
+          >
+            Cash
+          </button></a
+        >
+      </div>
+      <div id="shipBillContainer">
+        <div class="container2">
+          <h2>Shipping</h2>
+
+          <label for="shipName">Full Name </label>
+          <input type="text" id="shipName" placeholder="Clinton M. Johnson" />
+          <label for="shipAdd">Shipping Address</label>
+          <input type="text" id="shipAdd" placeholder="1570 Woodward Ave." />
+          <label for="shipCity">City</label>
+          <input type="text" id="shipCity" placeholder="Detroit" />
+          <label for="shipState">State</label>
+          <input type="text" id="shipState" placeholder="MI" />
+          <label for="shipZip">Zip Code</label>
+          <input type="text" id="shipZip" placeholder="48226" />
         </div>
+
         <div class="paymentChoice">
             <h2 class="pay-question">How would you like to pay?</h2>
             <a><button id="creditCardButton" class="creditCardButton btn" onclick="ccSelection()">Credit
@@ -116,3 +147,4 @@
 
 
 </html>
+

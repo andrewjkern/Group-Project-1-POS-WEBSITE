@@ -24,6 +24,7 @@ body {
   width: 0;
   display: none;
 }
+
 nav {
   padding: 15px;
   width: 92%;
@@ -197,6 +198,7 @@ button:hover {
     letter-spacing: 30px;
   }
 
+
   .page {
     height: 100vh;
     justify-content: center;
@@ -240,3 +242,5 @@ button:hover {
 
 }
 
+
+}

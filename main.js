@@ -188,6 +188,7 @@ const getProducts = (category) => {
     productCategory.append(itemContainer);
   }
 };
+
 const getAllProducts = () => {
   getProducts("succulents");
   getProducts("petFriendly");
@@ -196,103 +197,88 @@ const getAllProducts = () => {
 };
 
 
+
 //Fill Cart Function is a work in progress as of push on 9.10 - Devin
 let fillCart = () => {
   //items in cart with prices
   {
     const cartPage = document.getElementsByClassName("container1");
-    for (let i = 0; i < inventory.length; i++) {
+
+    for (let i = 0; i < inventory.length; i++)
       const cartItem = document.createElement("div");
 
-      const itemName = document.createElement("h3");
-      const remove = document.createElement("button");
-      const itemPrice = document.createElement("span");
+    const itemName = document.createElement("h3");
+    const remove = document.createElement("button");
+    const itemPrice = document.createElement("span");
 
-      itemName.innerText = cart[i].name;
-      remove.innerText = "X";
-      itemPrice.innerText = cart[i].price;
+    itemName.innerText = cart[i].name;
+    remove.innerText = "X";
+    itemPrice.innerText = cart[i].price;
 
-      cartItem.append(itemName);
-      cartItem.append(remove);
-      cartItem.append(itemPrice);
+    cartItem.append(itemName);
+    cartItem.append(remove);
+    cartItem.append(itemPrice);
 
-      container1.append(cartItem);
-    }
-    //subtotal to go under the individual items
-    {
-      const subtotalLine = document.getElementById("container1");
-      const subtotal = document.createElement("div");
-      const subtotalText = document.createElement("h3");
-      const subPrice = document.getElementById("span");
-      subtotal.innerText = "Subtotal:";
-      subPrice.innerText = totalPrice();
+    container1.append(cartItem);
+  }
+  //subtotal to go under the individual items
+  {
+    const subtotalLine = document.getElementById("container1");
+    const subtotal = document.createElement("div");
+    const subtotalText = document.createElement("h3");
+    const subPrice = document.getElementById("span");
+    subtotal.innerText = "Subtotal:";
+    subPrice.innerText = totalPrice();
 
-      subtotal.append(subtotalText);
-      subtotal.append(subPrice);
-      subtotalLine.append(subtotal);
-    }
-
-    //tax, shipping, and total
-    {
-      const finalPrice = document.getElementById("container1");
-      const taxAndTotal = document.createElement("div");
-
-      const tax = document.createElement("p");
-      const taxText = document.createElement("span");
-      let taxNumber = document.createElement("span");
-      taxText.innerText = "Tax:";
-      taxNumber.innerText = taxFunction();
-
-      const ship = document.createElement("p");
-      const shipText = document.createElement("span");
-      let shipNumber = document.createElement("span");
-      taxText.innerText = "Shipping:";
-      taxNumber.innerText = shipping();
-
-      const grand = document.createElement("p");
-      const grandText = document.createElement("span");
-      let grandNumber = document.createElement("span");
-      grandText.innerText = "Total:";
-      grandNumber.innerText = grandTotal();
-
-      tax.append(taxText);
-      tax.append(taxNumber);
-      taxAndTotal.append(tax);
-
-      ship.append(shipText);
-      ship.append(shipNumber);
-      taxAndTotal.append(ship);
-
-      grand.append(grandText);
-      grand.append(grandNumber);
-      taxAndTotal.append(grand);
-
-      container1.append(taxAndTotal);
-    }
+    subtotal.append(subtotalText);
+    subtotal.append(subPrice);
+    subtotalLine.append(subtotal);
   }
 
-  let showCart = () => {
-    cart = JSON.parse(window.localStorage.getItem("cart"));
-    console.log(cart);
-  };
+  //tax, shipping, and total
+  {
+    const finalPrice = document.getElementById("container1");
+    const taxAndTotal = document.createElement("div");
 
-  const getAllProducts = () => {
-    getProducts("succulents");
-    getProducts("petFriendly");
-    getProducts("beginnerFriendly");
-    getProducts("luxury");
-  };
+    const tax = document.createElement("p");
+    const taxText = document.createElement("span");
+    let taxNumber = document.createElement("span");
+    taxText.innerText = "Tax:";
+    taxNumber.innerText = taxFunction();
 
-  function ccSelection() {
-    var x = document.getElementById("shipBillContainer");
-    var c = (document.getElementById("cashPayment").style.display = "none");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+    const ship = document.createElement("p");
+    const shipText = document.createElement("span");
+    let shipNumber = document.createElement("span");
+    taxText.innerText = "Shipping:";
+    taxNumber.innerText = shipping();
+
+    const grand = document.createElement("p");
+    const grandText = document.createElement("span");
+    let grandNumber = document.createElement("span");
+    grandText.innerText = "Total:";
+    grandNumber.innerText = grandTotal();
+
+    tax.append(taxText);
+    tax.append(taxNumber);
+    taxAndTotal.append(tax);
+
+    ship.append(shipText);
+    ship.append(shipNumber);
+    taxAndTotal.append(ship);
+
+    grand.append(grandText);
+    grand.append(grandNumber);
+    taxAndTotal.append(grand);
+
+    container1.append(taxAndTotal);
+
   }
 
+
+let showCart = () => {
+  cart = JSON.parse(window.localStorage.getItem("cart"));
+  console.log(cart);
+};
 
 let showCart = () => {
   cart = JSON.parse(window.localStorage.getItem("cart"));

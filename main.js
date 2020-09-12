@@ -195,6 +195,7 @@ const getAllProducts = () => {
   getProducts("luxury");
 };
 
+
 //Fill Cart Function is a work in progress as of push on 9.10 - Devin
 let fillCart = () => {
   //items in cart with prices
@@ -282,6 +283,7 @@ const getAllProducts = () => {
   getProducts("luxury");
 };
 
+
 function ccSelection() {
   var x = document.getElementById("shipBillContainer");
   var c = (document.getElementById("cashPayment").style.display = "none");
@@ -300,4 +302,6 @@ function cashSelection() {
   } else {
     c.style.display = "none";
   }
+
 }
+

@@ -180,8 +180,12 @@ let fillCart = () => {
   //items in cart with prices
   {
     const cartPage = document.getElementsByClassName("container1");
+
     for (let i = 0; i < inventory.length; i++);
-    const cartItem = document.createElement("div");
+
+      const cartItem = document.createElement("div");
+
+
     const itemName = document.createElement("h3");
     const remove = document.createElement("button");
     const itemPrice = document.createElement("span");
@@ -240,6 +244,10 @@ let showCart = () => {
   cart = JSON.parse(window.localStorage.getItem("cart"));
   console.log(cart);
 };
+
+
+
+
 function ccSelection() {
   var x = document.getElementById("shipBillContainer");
   var c = (document.getElementById("cashPayment").style.display = "none");
